@@ -1,1 +1,10 @@
 <h3><%= @user.email %></h3>
+<p><%= current_user.id%></p>
+<p><%= @user.id %></p>
+
+<%= form_for @project do |f| %>
+	<%= f.text_field :title, placeholder: "Title" %>
+	<%= f.text_field :description, placeholder: "Description" %>
+	<%= f.submit%>
+<% end %>
+
