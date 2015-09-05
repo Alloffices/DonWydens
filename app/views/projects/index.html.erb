@@ -1,0 +1,8 @@
+<h3><%= link_to "New", new_project_path %></h3>
+<% @projects.each do |project| %>
+	<div>
+		<%= project.user.email %>
+		<%= project.title %>
+		<%= project.description %>
+	</div>
+<% end %>

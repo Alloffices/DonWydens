@@ -1,6 +1,7 @@
 class WelcomesController < ApplicationController
 	def index
 		@users = User.all
+		@project = Project.new
 	end
 
 	def show
