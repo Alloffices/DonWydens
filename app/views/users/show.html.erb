@@ -2,6 +2,8 @@
 <p><%= current_user.id%></p>
 <p><%= @user.id %></p>
 
+<%= link_to "Send Message", user_projects_path(@user.id) %>
+
 <%= form_for @project do |f| %>
 	<%= f.text_field :userforhire, required: true, value: @user.email if current_user  %>
 	<%= f.text_field :title, placeholder: "Title" %>

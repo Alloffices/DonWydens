@@ -1,5 +1,11 @@
-<%= form_for @project do |f|%>
+<!--  form_for @project do |f|%>
+	 f.text_field :title, placeholder: "Title" %>
+	< f.text_area :description, placeholder: "Description" %>
+	< f.submit%>
+ end %>
+ -->
+<%= form_for [@recipient, @user] do |f| %>
 	<%= f.text_field :title, placeholder: "Title" %>
 	<%= f.text_area :description, placeholder: "Description" %>
-	<%= f.submit%>
+     <%= f.submit %>
 <% end %>

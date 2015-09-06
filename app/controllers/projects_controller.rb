@@ -1,20 +1,20 @@
 class ProjectsController < ApplicationController
+  	before_action :set_recipient, only: [:new, :create]
 
 	def index
 		@projects = Project.all
 	end
 
 	def new
-		@project = current_user.projects.build
+		@project = current_user.sent_projects.new
+
 	end
 
 	def create
-		@project = current_user.projects.build(project_params)
-		if @project.save
-			redirect_to @project
-		else
-			render 'new'
-		end
+     	@project.recipient_id = @recipient.id
+
+		@project = current_user.sent_projects.new project_params
+		@project.save
 	end
 
 	def show
@@ -25,6 +25,10 @@ class ProjectsController < ApplicationController
 
 	def project_params
 		params.require(:project).permit(:title, :description, :userforhire)
+	end
+
+	def set_recipient
+	   @recipient = User.find params[:user_id]
 	end
 
 end
