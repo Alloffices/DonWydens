@@ -3,8 +3,8 @@
 <p><%= @user.id %></p>
 
 <%= form_for @project do |f| %>
+	<%= f.text_field :userforhire, required: true, value: @user.email if current_user  %>
 	<%= f.text_field :title, placeholder: "Title" %>
 	<%= f.text_field :description, placeholder: "Description" %>
 	<%= f.submit%>
 <% end %>
-

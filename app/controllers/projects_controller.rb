@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
-		@project = @user, current_user.projects.build(project_params)
+		@project = current_user.projects.build(project_params)
 		if @project.save
 			redirect_to @project
 		else
@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
 	private
 
 	def project_params
-		params.require(:project).permit(:title, :description)
+		params.require(:project).permit(:title, :description, :userforhire)
 	end
 
 end
